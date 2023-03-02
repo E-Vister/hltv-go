@@ -31,8 +31,8 @@ export const getMatches =
         const live = el.find('.matchTime.matchLive').text() === 'LIVE'
         const event = getEvent(el)
         const date = el.find('.matchTime').numFromAttr('data-unix')
-        const team1 = getTeam(el, 1)
-        const team2 = getTeam(el, 2)
+        const team1 = getTeam(el, 0)
+        const team2 = getTeam(el, 1)
 
         return { id, date, title, team1, team2, format, event, live }
       })
@@ -41,12 +41,15 @@ export const getMatches =
 function getTeam(el: HLTVPageElement, index: number) {
   if (!el.find('.matchTeamName').exists()) return undefined
 
-  const teamEl = el.find(`.matchTeam.team${index}`)
+  const teamEl = el.find(`.matchTeams`).children().eq(index)
 
   const teamLogo = teamEl.find('.matchTeamLogo.night-only').exists()
-    ? el.find('.matchTeamLogo.night-only').attr('src')
-    : el.find('.matchTeamLogo').attr('src')
-  const teamName = teamEl.find('.matchTeamName').text()
+    ? teamEl.find('.matchTeamLogo.night-only').attr('src')
+    : teamEl.find('.matchTeamLogo').attr('src')
+  const teamName = el
+    .find('.matchTeamName')
+    .eq(index)
+    .text()
 
   return {
     name: teamName,

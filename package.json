@@ -1,6 +1,6 @@
 {
   "name": "hltv-go",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "The unofficial HLTV Node.js API special for GoStars",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
