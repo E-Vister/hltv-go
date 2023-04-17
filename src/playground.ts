@@ -6,3 +6,4 @@ const log = (promise: Promise<any>) =>
     .catch((err) => console.log(err))
 
 log(HLTV.getMatches())
+//log(HLTV.getMatch(2363542))

@@ -1,5 +1,6 @@
 import { defaultConfig, defaultLoadPage, HLTVConfig } from './config'
 import { getMatches } from './endpoints/getMatches'
+import { getMatch } from './endpoints/getMatch'
 
 export class Hltv {
   constructor(private config: Partial<HLTVConfig> = {}) {
@@ -17,6 +18,8 @@ export class Hltv {
   }
 
   getMatches = getMatches(this.config as HLTVConfig)
+
+  getMatch = getMatch(this.config as HLTVConfig)
 
   public createInstance(config: Partial<HLTVConfig>) {
     return new Hltv(config)

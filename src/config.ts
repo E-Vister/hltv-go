@@ -19,9 +19,9 @@ export const defaultLoadPage =
         .then(async (browser) => {
           const page = await browser.newPage()
 
-          await page.goto('https://www.hltv.org/matches')
+          await page.goto(url)
           // await page.screenshot({path: 'page.png', fullPage: true})
-          await page.waitForSelector('.mainContent')
+          await page.waitForSelector('.widthControl')
 
           const root = await page.$eval('html', (el) => el.outerHTML)
 
