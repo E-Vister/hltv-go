@@ -46,10 +46,7 @@ function getTeam(el: HLTVPageElement, index: number) {
   const teamLogo = teamEl.find('.matchTeamLogo.night-only').exists()
     ? teamEl.find('.matchTeamLogo.night-only').attr('src')
     : teamEl.find('.matchTeamLogo').attr('src')
-  const teamName = el
-    .find('.matchTeamName')
-    .eq(index)
-    .text()
+  const teamName = el.find('.matchTeamName').eq(index).text()
 
   return {
     name: teamName,

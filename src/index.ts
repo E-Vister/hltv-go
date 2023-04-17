@@ -1,5 +1,5 @@
-import {defaultConfig, defaultLoadPage, HLTVConfig} from "./config";
-import { getMatches } from "./endpoints/getMatches";
+import { defaultConfig, defaultLoadPage, HLTVConfig } from './config'
+import { getMatches } from './endpoints/getMatches'
 
 export class Hltv {
   constructor(private config: Partial<HLTVConfig> = {}) {
